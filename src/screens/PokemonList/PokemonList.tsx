@@ -9,9 +9,15 @@ import {
 } from 'react-native';
 
 // js
-import api from '../../services/api';
-import colors from '../../utils/colors';
 import styles from './styles';
+
+// services
+import api from '../../services/api';
+import StringService from '../../services/StringService';
+import PokemonService from '../../services/PokemonService';
+
+// utils
+import colors from '../../utils/colors';
 
 // components
 import Header from '../../components/Header/Header';
@@ -35,113 +41,36 @@ function PokemonList({ navigation }: any) {
 
 		typingTimeout.current = window.setTimeout(() => {
 			if (searchParams.length) {
-				loadSearchedPokemons(searchParams);
+				PokemonService.loadSearchedPokemons(
+					searchParams,
+					loading,
+					setLoading,
+					setShouldRenderEmpty,
+					setPokemonList,
+				);
 			} else {
-				loadPokemons();
+				PokemonService.loadPokemons(
+					loading,
+					setLoading,
+					pokemonList,
+					setShouldRenderEmpty,
+					setPokemonList,
+				);
 			}
 		}, 750);
 	}, [searchParams]);
 
 	// methods
-	async function loadPokemons() {
-		try {
-			if (!loading) {
-				setLoading(true);
-
-				// getting 10 pokemons per requisition
-				const response = await api.get(
-					`/pokemon/?limit=30&offset=${pokemonList.length}`,
-				);
-
-				const result = response.data.results;
-
-				if (!result) {
-					setShouldRenderEmpty(true);
-				} else {
-					setShouldRenderEmpty(false);
-				}
-
-				for (let index = 0; index < result.length; index++) {
-					const url = result[index].url.slice(0, -1);
-					const id = url.split('/').pop();
-					result[index].id = id;
-					result[
-						index
-					].spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result[index].id}.png`;
-					const detailResponse = await api.get(
-						`/pokemon/${result[index].id}`,
-					);
-					const detail = detailResponse.data;
-					result[index].types = detail.types;
-					result[index].abilities = detail.abilities;
-					result[index].height = detail.height;
-					result[index].weight = detail.weight;
-					result[index].stats = detail.stats;
-				}
-
-				const concatedResult = pokemonList.concat(result);
-
-				setPokemonList(concatedResult);
-			}
-		} catch (error) {
-			setPokemonList([]);
-			setShouldRenderEmpty(true);
-		}
-		setLoading(false);
-	}
-
-	async function loadSearchedPokemons(param: string) {
-		const lowerCaseParam = param.toLowerCase();
-
-		try {
-			if (!loading) {
-				setLoading(true);
-				const response = await api.get(`/pokemon/${lowerCaseParam}`);
-				const result = response.data;
-
-				if (!result) {
-					setShouldRenderEmpty(true);
-				} else {
-					setShouldRenderEmpty(false);
-				}
-
-				const id = result.id;
-				const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-
-				const newPokemonResult: any = {
-					id,
-					spriteUrl,
-					name: result.name,
-					types: result.types,
-					abilities: result.abilities,
-					height: result.height,
-					weight: result.weight,
-					stats: result.stats,
-				};
-				setPokemonList([]);
-				setPokemonList([].concat(newPokemonResult));
-			}
-		} catch (error) {
-			setPokemonList([]);
-			setShouldRenderEmpty(true);
-		}
-		setLoading(false);
-	}
-
 	function loadMorePokemons() {
 		if (!searchParams.length) {
-			loadPokemons();
+			PokemonService.loadPokemons(
+				loading,
+				setLoading,
+				pokemonList,
+				setShouldRenderEmpty,
+				setPokemonList,
+			);
 		}
-	}
-
-	function renderPokemonCard({ item }: any) {
-		return (
-			<PokemonCard
-				key={item.name}
-				pokemon={item}
-				navigation={navigation}
-			/>
-		);
 	}
 
 	function onBlur() {
@@ -154,6 +83,17 @@ function PokemonList({ navigation }: any) {
 		}
 
 		setSearchParams(text);
+	}
+
+	// renders
+	function renderPokemonCard({ item }: any) {
+		return (
+			<PokemonCard
+				key={item.name}
+				pokemon={item}
+				navigation={navigation}
+			/>
+		);
 	}
 
 	function renderFooterComponent() {

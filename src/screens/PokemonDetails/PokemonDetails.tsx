@@ -27,6 +27,12 @@ function PokemonDetails({ route }: any) {
 		stats = [],
 		types = [],
 		weight,
+		// Use later
+		evolutionChain = [],
+		growthRate,
+		habitat,
+		legendary,
+		mythical,
 	} = pokemon;
 
 	const typeName = types[0].type.name;
