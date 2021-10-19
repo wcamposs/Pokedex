@@ -29,10 +29,6 @@ function PokemonList({ navigation }: any) {
 	const typingTimeout = useRef(0);
 
 	useEffect(() => {
-		loadPokemons();
-	}, []);
-
-	useEffect(() => {
 		if (typingTimeout.current) {
 			clearTimeout(typingTimeout.current);
 		}
@@ -43,7 +39,7 @@ function PokemonList({ navigation }: any) {
 			} else {
 				loadPokemons();
 			}
-		}, 250);
+		}, 750);
 	}, [searchParams]);
 
 	// methods
@@ -54,7 +50,7 @@ function PokemonList({ navigation }: any) {
 
 				// getting 10 pokemons per requisition
 				const response = await api.get(
-					`/pokemon/?limit=10&offset=${pokemonList.length}`,
+					`/pokemon/?limit=30&offset=${pokemonList.length}`,
 				);
 
 				const result = response.data.results;
@@ -117,6 +113,7 @@ function PokemonList({ navigation }: any) {
 					spriteUrl,
 					name: result.name,
 					types: result.types,
+					abilities: result.abilities,
 					height: result.height,
 					weight: result.weight,
 					stats: result.stats,

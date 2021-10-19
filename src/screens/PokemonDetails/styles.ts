@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: '100%',
         width: '100%',
-        paddingTop: 30,
+        paddingVertical: 30,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         justifyContent: 'center',

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     loadingContainer: {
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: 10,
     },
     listContainer: {
         paddingVertical: 8,

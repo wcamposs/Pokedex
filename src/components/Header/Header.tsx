@@ -57,6 +57,7 @@ const Header: React.FC<HeaderProps> = ({
 
 const styles = StyleSheet.create({
 	container: {
+		marginTop: 20,
 		padding: 24,
 		backgroundColor: colors.transparent,
 		zIndex: 100,
