@@ -84,6 +84,14 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
     },
+    specialPokemonTagContainer: {
+        marginTop: -12,
+        marginBottom: 12,
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     abilityName: {
         textAlign: 'center',
         fontSize: 18,

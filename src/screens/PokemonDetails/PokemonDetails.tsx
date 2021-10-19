@@ -71,6 +71,15 @@ function PokemonDetails({ route }: any) {
 							style={styles.image}
 						/>
 					</View>
+
+					<View style={styles.specialPokemonTagContainer}>
+						{!legendary ? null : (
+							<Chip name={'legendary'} isLegendary />
+						)}
+						{!mythical ? null : (
+							<Chip name={'mythical'} isMythical />
+						)}
+					</View>
 				</View>
 
 				<View style={styles.pokemonInfoContainer}>

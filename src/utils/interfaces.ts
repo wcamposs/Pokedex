@@ -3,6 +3,8 @@ import { ReactNode } from 'react';
 // chip component
 export interface ChipProps {
 	name: string;
+	isMythical?: boolean;
+	isLegendary?: boolean;
 }
 
 // header component

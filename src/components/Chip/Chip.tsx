@@ -9,7 +9,7 @@ import colors from '../../utils/colors';
 import { ChipProps } from '../../utils/interfaces';
 
 function Chip(props: ChipProps) {
-	const { name } = props;
+	const { name, isMythical = false, isLegendary = false } = props;
 
 	const typeColors: { [key: string]: string } = {
 		bug: '#5e7a4b',
@@ -30,13 +30,19 @@ function Chip(props: ChipProps) {
 		rock: '#54412a',
 		steel: '#737373',
 		water: '#0357ff',
+		mythical: '#000000',
+		legendary: '#000000',
 	};
 
 	const typeColor = typeColors[name] || colors.black;
+	const specialPokemon = isMythical || isLegendary;
 
 	return (
 		<View style={[styles.container, { backgroundColor: typeColor }]}>
-			<Text style={styles.typeName}>{name.toUpperCase()}</Text>
+			<Text
+				style={styles.typeName(specialPokemon, typeColors['electric'])}>
+				{name.toUpperCase()}
+			</Text>
 		</View>
 	);
 }
@@ -47,18 +53,18 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		height: 20,
 		maxHeight: 20,
-		width: 65,
+		width: 68,
 		maxWidth: 100,
 		borderRadius: 30,
 		marginHorizontal: 4,
 		textAlign: 'center',
 		// flexWrap: 'wrap', // TEST WHEN POKEMON HAVE 3 OR 4 TYPES
 	},
-	typeName: {
-		color: colors.white,
-		fontSize: 12,
+	typeName: (specialType, color) => ({
+		color: specialType ? color : colors.white,
+		fontSize: 10,
 		fontWeight: 'bold',
-	},
+	}),
 });
 
 export default Chip;
