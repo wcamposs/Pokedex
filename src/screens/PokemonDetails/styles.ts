@@ -131,6 +131,11 @@ const styles = StyleSheet.create({
     emptyContainer: {
         height: 70,
     },
+    pokemonEvolutionContainer: {
+        margin: 8,
+        flex: 1,
+        width: '90%',
+    },
 })
 
 export default styles;

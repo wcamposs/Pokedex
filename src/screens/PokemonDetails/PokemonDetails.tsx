@@ -15,6 +15,7 @@ import Chip from '../../components/Chip/Chip';
 // interfaces
 import { PokemonAbilityItem } from '../../utils/interfaces';
 import { PokemonStatItem } from '../../utils/interfaces';
+import EvolutionChain from '../../components/EvolutionChain/EvolutionChain';
 
 function PokemonDetails({ route }: any) {
 	const { pokemon } = route.params;
@@ -143,6 +144,16 @@ function PokemonDetails({ route }: any) {
 								);
 							})}
 						</View>
+					</View>
+
+					<Divider style={styles.divider} />
+
+					<Text style={styles.sectionTitle}>EVOLUTION</Text>
+					<View style={styles.pokemonEvolutionContainer}>
+						<EvolutionChain
+							backgroundColor={backgroundColor}
+							evolutionChain={evolutionChain}
+						/>
 					</View>
 				</View>
 			</ScrollView>
