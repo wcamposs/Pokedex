@@ -70,7 +70,9 @@ function EvolutionChain(props) {
 							secondGenEvolutionDetails[0]?.min_level;
 
 						return (
-							<View style={styles.evolutionRow}>
+							<View
+								style={styles.evolutionRow}
+								key={secondGenSpecies.name}>
 								{renderEvolutionContainer(
 									species.name,
 									species.spriteUrl,
@@ -103,7 +105,9 @@ function EvolutionChain(props) {
 							thirdGenEvolutionDetails[0]?.min_level;
 
 						return (
-							<View style={styles.evolutionRow}>
+							<View
+								style={styles.evolutionRow}
+								key={thirdGenSpecies.name}>
 								{renderEvolutionContainer(
 									secondGenSpecies.name,
 									secondGenSpecies.spriteUrl,
@@ -136,7 +140,9 @@ function EvolutionChain(props) {
 							fourthGenEvolutionDetails[0]?.min_level;
 
 						return (
-							<View style={styles.evolutionRow}>
+							<View
+								style={styles.evolutionRow}
+								key={fourthGenSpecies.name}>
 								{renderEvolutionContainer(
 									thirdGenSpecies.name,
 									thirdGenSpecies.spriteUrl,
