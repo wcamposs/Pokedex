@@ -19,40 +19,53 @@ const styles = StyleSheet.create({
     evolutionRow: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 12,
     },
+    // image container
     evolutionImageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 12,
+        marginBottom: 16,
     },
     evolutionPokemonTitle: {
-        marginTop: 12,
+        marginTop: 20,
+        marginBottom: 28,
         textAlign: 'center',
         fontSize: 16,
         fontWeight: '700',
         textTransform: 'capitalize',
     },
+    imageContainer: {
+        marginBottom: 28,
+        marginHorizontal: 16,
+    },
     evolutionImage: {
-        margin: -48,
-        width: 175,
-        height: 175,
+        margin: -40,
+        width: 150,
+        height: 150,
     },
     separatorContainer: {
         alignItems: 'center',
         justifyContent: 'center',
+        marginHorizontal: 12,
     },
     evolutionLevelText: {
+        marginTop: 20,
         marginBottom: 8,
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: '700',
     },
     divider: {
         marginHorizontal: 8,
         marginBottom: 10,
-        width: 80,
+        width: 50,
         height: 1,
         borderWidth: 2,
+    },
+    emptyContainer: {
+        marginVertical: 20,
     },
 });
 

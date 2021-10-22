@@ -7,74 +7,155 @@ import { Divider } from 'react-native-elements';
 import styles from './styles';
 
 function EvolutionChain(props) {
-	const { backgroundColor, evolutionChain } = props;
+	const { backgroundColor, evolutionChain = [] } = props;
+	const { species, evolves_to = [] } = evolutionChain;
 
-	// const secondEvolutionChain = evolutionChain.evolves_to;
+	const { evolves_to: secondEvolutionChain = [] } = evolutionChain || [];
+	const { species: secondGenSpecies } = secondEvolutionChain[0] || {};
 
-	function renderPokemonEvolution(evolution) {
-		console.log(JSON.stringify(evolution));
-		const {
-			evolution_details: evolutionDetails,
-			evolves_to: evolvesTo,
-			species,
-		} = evolution;
-		const { min_level: minLevel } =
-			evolutionDetails[0] || evolvesTo[0].evolution_details[0];
-		const { name, spriteUrl } = species;
+	const { evolves_to: thirdEvolutionChain = [] } =
+		secondEvolutionChain[0] || {};
+	const { species: thirdGenSpecies } = thirdEvolutionChain[0] || {};
 
-		const evolutionLevelTitle = `LVL: ${minLevel}`;
+	const { evolves_to: fourthEvolutionChain = [] } =
+		thirdEvolutionChain[0] || {};
 
+	function renderEvolutionContainer(name: string, imageUrl: string) {
 		return (
-			<View style={styles.container}>
-				<View style={styles.row}>
-					{/* Actual Evolution */}
-					<View style={styles.evolutionImageContainer}>
-						<Text style={styles.evolutionPokemonTitle}>{name}</Text>
-						<Image
-							source={{
-								uri: spriteUrl,
-							}}
-							style={styles.evolutionImage}
-						/>
-					</View>
-
-					{/* DIVIDER AND LVL HERE */}
-					<View style={styles.separatorContainer}>
-						<Text style={styles.evolutionLevelText}>
-							{evolutionLevelTitle}
-						</Text>
-						<Divider style={styles.divider} />
-					</View>
-
-					{/* Next Evolution */}
-					{/* {evolvesTo.map((nextEvolution) => {
-						console.log(nextEvolution);
-						return (
-							<View style={styles.evolutionImageContainer}>
-								<Text style={styles.evolutionPokemonTitle}>
-									{evolutionChain.species.name}
-								</Text>
-								<Image
-									source={{
-										uri: evolutionChain.species.spriteUrl,
-									}}
-									style={styles.evolutionImage}
-								/>
-							</View>
-						);
-					})} */}
+			<View style={styles.evolutionImageContainer}>
+				<Text style={styles.evolutionPokemonTitle}>{name}</Text>
+				<View style={styles.imageContainer}>
+					<Image
+						source={{ uri: imageUrl }}
+						style={styles.evolutionImage}
+						resizeMode="contain"
+					/>
 				</View>
+			</View>
+		);
+	}
+
+	function renderSeparatorContainer(
+		hasMinLevel: boolean,
+		pokemonLevel: number,
+	) {
+		return (
+			<View style={styles.separatorContainer}>
+				{!hasMinLevel ? (
+					<View style={styles.emptyContainer} />
+				) : (
+					<Text style={styles.evolutionLevelText}>
+						{`LVL: ${pokemonLevel}`}
+					</Text>
+				)}
+				<Divider style={styles.divider} />
 			</View>
 		);
 	}
 
 	return (
 		<View style={styles.evolutionInnerContainer(backgroundColor)}>
-			<View style={styles.evolutionRow}>
-				{evolutionChain.evolves_to.map((evolution) => {
-					return <>{renderPokemonEvolution(evolutionChain)}</>;
-				})}
-			</View>
+			{/* first evolution to second */}
+			{!evolves_to.length ? (
+				<>{renderEvolutionContainer(species.name, species.spriteUrl)}</>
+			) : (
+				<>
+					{secondEvolutionChain.map((evolution: any) => {
+						const {
+							species: secondGenSpecies = {},
+							evolution_details: secondGenEvolutionDetails = [],
+						} = evolution || {};
+
+						const hasMinLvl =
+							secondGenEvolutionDetails[0]?.min_level;
+
+						return (
+							<View style={styles.evolutionRow}>
+								{renderEvolutionContainer(
+									species.name,
+									species.spriteUrl,
+								)}
+
+								{renderSeparatorContainer(
+									hasMinLvl,
+									secondGenEvolutionDetails[0].min_level,
+								)}
+
+								{renderEvolutionContainer(
+									secondGenSpecies.name,
+									secondGenSpecies.spriteUrl,
+								)}
+							</View>
+						);
+					})}
+				</>
+			)}
+			{/* second evolution to third */}
+			{!thirdEvolutionChain.length ? null : (
+				<>
+					{thirdEvolutionChain.map((evolution: any) => {
+						const {
+							species: thirdGenSpecies = {},
+							evolution_details: thirdGenEvolutionDetails = [],
+						} = evolution || {};
+
+						const hasSecondEvoMinLvl =
+							thirdGenEvolutionDetails[0]?.min_level;
+
+						return (
+							<View style={styles.evolutionRow}>
+								{renderEvolutionContainer(
+									secondGenSpecies.name,
+									secondGenSpecies.spriteUrl,
+								)}
+
+								{renderSeparatorContainer(
+									hasSecondEvoMinLvl,
+									thirdGenEvolutionDetails[0].min_level,
+								)}
+
+								{renderEvolutionContainer(
+									thirdGenSpecies.name,
+									thirdGenSpecies.spriteUrl,
+								)}
+							</View>
+						);
+					})}
+				</>
+			)}
+			{/* third evolution to fourth */}
+			{!fourthEvolutionChain.length ? null : (
+				<>
+					{fourthEvolutionChain.map((evolution: any) => {
+						const {
+							species: fourthGenSpecies = {},
+							evolution_details: fourthGenEvolutionDetails = [],
+						} = evolution || {};
+
+						const hasThirdEvoMinLvl =
+							fourthGenEvolutionDetails[0]?.min_level;
+
+						return (
+							<View style={styles.evolutionRow}>
+								{renderEvolutionContainer(
+									thirdGenSpecies.name,
+									thirdGenSpecies.spriteUrl,
+								)}
+
+								{renderSeparatorContainer(
+									hasThirdEvoMinLvl,
+									fourthGenEvolutionDetails[0].min_level,
+								)}
+
+								{renderEvolutionContainer(
+									fourthGenSpecies.name,
+									fourthGenSpecies.spriteUrl,
+								)}
+							</View>
+						);
+					})}
+				</>
+			)}
 		</View>
 	);
 }

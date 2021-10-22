@@ -148,7 +148,7 @@ function PokemonDetails({ route }: any) {
 
 					<Divider style={styles.divider} />
 
-					<Text style={styles.sectionTitle}>EVOLUTION</Text>
+					<Text style={styles.sectionTitle}>EVOLUTIONS</Text>
 					<View style={styles.pokemonEvolutionContainer}>
 						<EvolutionChain
 							backgroundColor={backgroundColor}
