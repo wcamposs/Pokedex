@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     evolutionImageContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginHorizontal: 12,
         marginBottom: 16,
     },
     evolutionPokemonTitle: {

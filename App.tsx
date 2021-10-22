@@ -11,6 +11,9 @@ export default function App() {
 	const readyTimeout = useRef(0);
 	const [appReady, setAppReady] = useState(false);
 
+	// UNCOMMENT TO DISABLE WARNINGS
+	// console.disableYellowBox = true;
+
 	useEffect(() => {
 		if (readyTimeout.current) {
 			clearTimeout(readyTimeout.current);
