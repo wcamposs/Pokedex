@@ -106,7 +106,7 @@ function PokemonList({ navigation }: any) {
 				{!loading ? null : (
 					<View style={styles.loadingContainer}>
 						<ActivityIndicator
-							style={styles.loadingContainer}
+							style={styles.loading}
 							size={70}
 							color={colors.red}
 						/>
