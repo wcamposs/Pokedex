@@ -4,12 +4,11 @@ import StringService from '../services/StringService';
 
 const PokemonService = {
     async loadPokemons(loading: boolean, setLoading: any, pokemonList: any, setShouldRenderEmpty: any, setPokemonList: any) {
-		if (!loading) {
 			setLoading(true);
 			try {			
 				// getting 10 pokemons per requisition
 				const response = await api.get(
-					`/pokemon/?limit=30&offset=${pokemonList.length}`,
+					`/pokemon/?limit=10&offset=${pokemonList.length}`,
 				);
 
 				const result = response.data.results;
@@ -125,14 +124,11 @@ const PokemonService = {
 				setPokemonList([]);
 				setShouldRenderEmpty(true);
 			}
-		}
 		setLoading(false);
 	},
 
     async loadSearchedPokemons(param: string, loading: boolean, setLoading: any, setShouldRenderEmpty: any, setPokemonList: any) {
 		const lowerCaseParam = param.toLowerCase();
-
-		if (!loading) {
 			setLoading(true);
 			try {
 					const response = await api.get(`/pokemon/${lowerCaseParam}`);
@@ -240,8 +236,6 @@ const PokemonService = {
 					setPokemonList([]);
 					setShouldRenderEmpty(true);
 				}
-		}
-		
 		setLoading(false);
 	}
 };

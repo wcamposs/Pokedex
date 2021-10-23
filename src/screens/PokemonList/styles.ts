@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
     },
     listContainer: {
-        paddingVertical: 8,
+        // paddingVertical: 8,
     },
 });
 

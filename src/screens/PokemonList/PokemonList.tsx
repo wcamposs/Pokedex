@@ -12,8 +12,6 @@ import {
 import styles from './styles';
 
 // services
-import api from '../../services/api';
-import StringService from '../../services/StringService';
 import PokemonService from '../../services/PokemonService';
 
 // utils
@@ -39,28 +37,33 @@ function PokemonList({ navigation }: any) {
 			clearTimeout(typingTimeout.current);
 		}
 
-		typingTimeout.current = window.setTimeout(() => {
-			if (searchParams.length) {
-				PokemonService.loadSearchedPokemons(
-					searchParams,
-					loading,
-					setLoading,
-					setShouldRenderEmpty,
-					setPokemonList,
-				);
-			} else {
-				PokemonService.loadPokemons(
-					loading,
-					setLoading,
-					pokemonList,
-					setShouldRenderEmpty,
-					setPokemonList,
-				);
-			}
-		}, 750);
+		typingTimeout.current = window.setTimeout(
+			() => handleLoadPokemons(),
+			750,
+		);
 	}, [searchParams]);
 
 	// methods
+	function handleLoadPokemons() {
+		if (searchParams.length) {
+			PokemonService.loadSearchedPokemons(
+				searchParams,
+				loading,
+				setLoading,
+				setShouldRenderEmpty,
+				setPokemonList,
+			);
+		} else {
+			PokemonService.loadPokemons(
+				loading,
+				setLoading,
+				pokemonList,
+				setShouldRenderEmpty,
+				setPokemonList,
+			);
+		}
+	}
+
 	function loadMorePokemons() {
 		if (!searchParams.length) {
 			PokemonService.loadPokemons(
@@ -96,11 +99,15 @@ function PokemonList({ navigation }: any) {
 		);
 	}
 
-	function renderFooterComponent() {
-		if (shouldRenderEmpty) {
-			return <EmptyList />;
+	function renderEmptycomponent() {
+		if (!shouldRenderEmpty || loading) {
+			return null;
 		}
 
+		return <EmptyList />;
+	}
+
+	function renderFooterComponent() {
 		return (
 			<>
 				{!loading ? null : (
@@ -128,13 +135,14 @@ function PokemonList({ navigation }: any) {
 			</View>
 			<FlatList
 				style={styles.listContainer}
-				maxToRenderPerBatch={10}
+				maxToRenderPerBatch={5}
 				onEndReached={loadMorePokemons}
 				onEndReachedThreshold={0.5}
 				data={pokemonList}
 				renderItem={renderPokemonCard}
 				keyExtractor={(_, index) => 'item_' + index}
 				ListFooterComponent={renderFooterComponent}
+				ListEmptyComponent={renderEmptycomponent}
 				showsVerticalScrollIndicator={false}
 			/>
 		</SafeAreaView>

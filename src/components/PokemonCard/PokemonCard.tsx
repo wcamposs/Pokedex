@@ -1,5 +1,5 @@
 // libraries
-import React from 'react';
+import React, { memo } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 // js
@@ -59,4 +59,4 @@ const PokemonCard: React.FC<PokemonItemProps> = ({ pokemon, navigation }) => {
 	);
 };
 
-export default PokemonCard;
+export default memo(PokemonCard);
