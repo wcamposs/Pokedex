@@ -3,7 +3,7 @@ import api from './api';
 import StringService from '../services/StringService';
 
 const PokemonService = {
-    async loadPokemons(loading: boolean, setLoading: any, pokemonList: any, setShouldRenderEmpty: any, setPokemonList: any) {
+    async loadPokemons(setLoading: (value: boolean) => void, pokemonList: any[], setShouldRenderEmpty: (value: boolean) => void, setPokemonList: (value: any) => void) {
 			setLoading(true);
 			try {			
 				// getting 10 pokemons per requisition
@@ -127,7 +127,7 @@ const PokemonService = {
 		setLoading(false);
 	},
 
-    async loadSearchedPokemons(param: string, loading: boolean, setLoading: any, setShouldRenderEmpty: any, setPokemonList: any) {
+    async loadSearchedPokemons(param: string, setLoading: (value: boolean) => void, setShouldRenderEmpty: (value: boolean) => void, setPokemonList: (value: any) => void) {
 		const lowerCaseParam = param.toLowerCase();
 			setLoading(true);
 			try {

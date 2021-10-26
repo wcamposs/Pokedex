@@ -17,6 +17,9 @@ import PokemonService from '../../services/PokemonService';
 // utils
 import colors from '../../utils/colors';
 
+// interfaces
+import { Pokemon } from '../../utils/interfaces';
+
 // components
 import Header from '../../components/Header/Header';
 import EmptyList from '../../components/EmptyList/EmptyList';
@@ -48,14 +51,12 @@ function PokemonList({ navigation }: any) {
 		if (searchParams.length) {
 			PokemonService.loadSearchedPokemons(
 				searchParams,
-				loading,
 				setLoading,
 				setShouldRenderEmpty,
 				setPokemonList,
 			);
 		} else {
 			PokemonService.loadPokemons(
-				loading,
 				setLoading,
 				pokemonList,
 				setShouldRenderEmpty,
@@ -67,7 +68,6 @@ function PokemonList({ navigation }: any) {
 	function loadMorePokemons() {
 		if (!searchParams.length) {
 			PokemonService.loadPokemons(
-				loading,
 				setLoading,
 				pokemonList,
 				setShouldRenderEmpty,
@@ -80,7 +80,7 @@ function PokemonList({ navigation }: any) {
 		Keyboard.dismiss();
 	}
 
-	function onChangeText(text = '') {
+	function onChangeText(text: string = '') {
 		if (!text.length) {
 			setPokemonList([]);
 		}
@@ -89,7 +89,7 @@ function PokemonList({ navigation }: any) {
 	}
 
 	// renders
-	function renderPokemonCard({ item }: any) {
+	function renderPokemonCard({ item }: { item: Pokemon }) {
 		return (
 			<PokemonCard
 				key={item.name}

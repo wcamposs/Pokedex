@@ -21,12 +21,6 @@ function SearchBar(props: any) {
 
 	return (
 		<View style={styles.container}>
-			<Feather
-				color={colors.darkBlue}
-				name="search"
-				size={20}
-				type="light"
-			/>
 			<TextInput
 				autoCapitalize="none"
 				autoCompleteType="off"
@@ -38,14 +32,16 @@ function SearchBar(props: any) {
 				returnKeyType="search"
 				onBlur={onBlur}
 			/>
-			<Feather
-				color={colors.darkBlue}
-				name="x"
-				onPress={handleOnCleanText}
-				size={20}
-				type="light"
-				containerStyle={styles.icon}
-			/>
+			{!value.length ? null : (
+				<Feather
+					color={colors.darkBlue}
+					name="x"
+					onPress={handleOnCleanText}
+					size={20}
+					type="light"
+					containerStyle={styles.icon}
+				/>
+			)}
 		</View>
 	);
 }
@@ -55,8 +51,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: colors.white,
 		borderColor: colors.grey,
-		borderRadius: 18,
-		borderWidth: 0.3,
+		borderRadius: 12,
+		borderWidth: 0.5,
 		flexDirection: 'row',
 		paddingHorizontal: 12,
 		marginTop: 12,

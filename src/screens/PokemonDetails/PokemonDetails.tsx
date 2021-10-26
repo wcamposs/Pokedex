@@ -8,6 +8,9 @@ import styles from './styles';
 import colors from '../../utils/colors';
 import backgroundColors from '../../utils/backgroundColors';
 
+// interfaces
+import { PokemonTypes } from '../../utils/interfaces';
+
 // components
 import Header from '../../components/Header/Header';
 import Chip from '../../components/Chip/Chip';
@@ -28,7 +31,6 @@ function PokemonDetails({ route }: any) {
 		stats = [],
 		types = [],
 		weight,
-		// Use later
 		evolutionChain = [],
 		growthRate,
 		habitat,
@@ -56,7 +58,7 @@ function PokemonDetails({ route }: any) {
 							</Text>
 						</View>
 						<View style={styles.typesListContainer}>
-							{types.map((pokemonType: any) => {
+							{types.map((pokemonType: PokemonTypes) => {
 								return (
 									<React.Fragment key={pokemonType.type.name}>
 										<Chip name={pokemonType.type.name} />
