@@ -15,7 +15,6 @@ import colors from '../../utils/colors';
 
 // interfaces
 import { HeaderProps } from '../../utils/interfaces';
-// import { fontFamily } from '../../utils/fonts';
 
 const Header: React.FC<HeaderProps> = ({
 	title,

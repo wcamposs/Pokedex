@@ -11,7 +11,7 @@ import backgroundColors from '../../utils/backgroundColors';
 import Chip from '../Chip/Chip';
 
 // interfaces
-import { PokemonItemProps } from '../../utils/interfaces';
+import { PokemonItemProps, PokemonTypes } from '../../utils/interfaces';
 
 const PokemonCard: React.FC<PokemonItemProps> = ({ pokemon, navigation }) => {
 	const { id, name, spriteUrl, types } = pokemon;
@@ -40,7 +40,7 @@ const PokemonCard: React.FC<PokemonItemProps> = ({ pokemon, navigation }) => {
 						<Text style={styles.name}>{name.toUpperCase()}</Text>
 
 						<View style={styles.typesContainerRow}>
-							{types.map((pokemonType: any) => {
+							{types.map((pokemonType: PokemonTypes) => {
 								return (
 									<React.Fragment key={pokemonType.type.name}>
 										<Chip name={pokemonType.type.name} />

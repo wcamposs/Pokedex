@@ -6,7 +6,7 @@ import { Divider } from 'react-native-elements';
 // js
 import styles from './styles';
 
-function EvolutionChain(props) {
+function EvolutionChain(props: any) {
 	const { backgroundColor, evolutionChain = [] } = props;
 	const { species, evolves_to = [] } = evolutionChain;
 
