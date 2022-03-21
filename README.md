@@ -56,6 +56,14 @@ npm install
 
 After installation, the project can be considered configured and ready to run.
 
+## Testing
+
+Assuming that you're in the app root directory, to run tests, execute the following command in terminal:
+
+```
+npm run test
+```
+
 ## Getting Started:
 
 Assuming you are in the root directory via a terminal, run the following command to run Expo:
