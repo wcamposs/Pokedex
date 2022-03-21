@@ -15,7 +15,7 @@ describe('<Header />', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	it('renders header correctly without title', () => {
+	it('renders header correctly without a title', () => {
 		const navigation = jest.fn();
 
 		const tree = renderer
