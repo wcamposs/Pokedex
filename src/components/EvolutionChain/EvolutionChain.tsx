@@ -8,6 +8,11 @@ import styles from './styles';
 
 function EvolutionChain(props: any) {
 	const { backgroundColor, evolutionChain = [] } = props;
+
+	if (!evolutionChain.length) {
+		return null;
+	}
+
 	const { species, evolves_to = [] } = evolutionChain;
 
 	const { evolves_to: secondEvolutionChain = [] } = evolutionChain || [];

@@ -11,17 +11,17 @@ import backgroundColors from '../../utils/backgroundColors';
 // interfaces
 import { PokemonTypes } from '../../utils/interfaces';
 
-// components
-import Header from '../../components/Header/Header';
-import Chip from '../../components/Chip/Chip';
-
 // interfaces
 import { PokemonAbilityItem } from '../../utils/interfaces';
 import { PokemonStatItem } from '../../utils/interfaces';
+
+// components
+import Chip from '../../components/Chip/Chip';
+import Header from '../../components/Header/Header';
 import EvolutionChain from '../../components/EvolutionChain/EvolutionChain';
 
-function PokemonDetails({ route }: any) {
-	const { pokemon } = route.params;
+function PokemonDetails({ navigation, route }: any) {
+	const { pokemon } = route?.params;
 	const {
 		abilities = [],
 		height,
@@ -43,7 +43,12 @@ function PokemonDetails({ route }: any) {
 
 	return (
 		<View style={styles.container(backgroundColor)}>
-			<Header title={name} showBackButton textColor={colors.white} />
+			<Header
+				navigation={navigation}
+				title={name}
+				showBackButton
+				textColor={colors.white}
+			/>
 
 			<ScrollView
 				showsVerticalScrollIndicator={false}

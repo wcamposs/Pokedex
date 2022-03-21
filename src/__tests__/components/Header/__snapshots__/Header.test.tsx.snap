@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders header correctly with title 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "marginTop": 20,
+      "padding": 24,
+      "zIndex": 100,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#d40000",
+            "fontSize": 32,
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 32,
+            "paddingTop": 12,
+            "textAlign": "center",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        Test Title
+      </Text>
+    </View>
+    <View />
+  </View>
+</View>
+`;
+
+exports[`<Header /> renders header correctly without title 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "marginTop": 20,
+      "padding": 24,
+      "zIndex": 100,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#d40000",
+            "fontSize": 32,
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 32,
+            "paddingTop": 12,
+            "textAlign": "center",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        
+      </Text>
+    </View>
+    <View />
+  </View>
+</View>
+`;

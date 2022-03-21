@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PokemonCard /> renders correctly with an pokemon 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#a3ccae",
+      "borderColor": "#a3ccae",
+      "borderRadius": 16,
+      "borderWidth": 1,
+      "elevation": 7,
+      "marginHorizontal": 12,
+      "marginVertical": 8,
+      "opacity": 1,
+      "overflow": "hidden",
+      "shadowColor": "#000",
+      "shadowOffset": Object {
+        "height": 4,
+        "width": 0,
+      },
+      "shadowOpacity": 0.32,
+      "shadowRadius": 5.46,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "marginLeft": 20,
+          "maxHeight": 100,
+          "maxWidth": 100,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+          }
+        }
+        style={
+          Object {
+            "height": 100,
+            "width": 100,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginLeft": 14,
+        }
+      }
+    >
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#FFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          IVYSAUR
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "marginTop": 12,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 30,
+                  "height": 20,
+                  "justifyContent": "center",
+                  "marginHorizontal": 4,
+                  "maxHeight": 20,
+                  "maxWidth": 100,
+                  "textAlign": "center",
+                  "width": 68,
+                },
+                Object {
+                  "backgroundColor": "#00bf30",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FFF",
+                  "fontSize": 10,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              GRASS
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 30,
+                  "height": 20,
+                  "justifyContent": "center",
+                  "marginHorizontal": 4,
+                  "maxHeight": 20,
+                  "maxWidth": 100,
+                  "textAlign": "center",
+                  "width": 68,
+                },
+                Object {
+                  "backgroundColor": "#b216f0",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FFF",
+                  "fontSize": 10,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              POISON
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "flex-end",
+          "flex": 1,
+          "justifyContent": "flex-end",
+          "marginHorizontal": 12,
+          "marginVertical": 4,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#f5f5f5",
+            "fontSize": 24,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        #2
+      </Text>
+    </View>
+  </View>
+</View>
+`;

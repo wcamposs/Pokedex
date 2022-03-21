@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Chip /> renders correctly as a legendary pokemon chip 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 30,
+        "height": 20,
+        "justifyContent": "center",
+        "marginHorizontal": 4,
+        "maxHeight": 20,
+        "maxWidth": 100,
+        "textAlign": "center",
+        "width": 68,
+      },
+      Object {
+        "backgroundColor": "#5e7a4b",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#dbe617",
+        "fontSize": 10,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    BUG
+  </Text>
+</View>
+`;
+
+exports[`<Chip /> renders correctly as a mythical pokemon chip 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 30,
+        "height": 20,
+        "justifyContent": "center",
+        "marginHorizontal": 4,
+        "maxHeight": 20,
+        "maxWidth": 100,
+        "textAlign": "center",
+        "width": 68,
+      },
+      Object {
+        "backgroundColor": "#5e7a4b",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#dbe617",
+        "fontSize": 10,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    BUG
+  </Text>
+</View>
+`;
+
+exports[`<Chip /> renders correctly as a normal pokemon chip 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 30,
+        "height": 20,
+        "justifyContent": "center",
+        "marginHorizontal": 4,
+        "maxHeight": 20,
+        "maxWidth": 100,
+        "textAlign": "center",
+        "width": 68,
+      },
+      Object {
+        "backgroundColor": "#5e7a4b",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#FFF",
+        "fontSize": 10,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    BUG
+  </Text>
+</View>
+`;

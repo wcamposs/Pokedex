@@ -125,7 +125,7 @@ function PokemonList({ navigation }: any) {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Header title="Pokedex" />
+			<Header navigation={navigation} title="Pokedex" />
 			<View style={styles.searchbarContainer}>
 				<SearchBar
 					onBlur={onBlur}

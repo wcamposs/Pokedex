@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { StackNavigator, NavigationScreenProp } from 'react-navigation';
 
 // POKEMON TYPES
 
@@ -24,13 +25,13 @@ export interface Pokemon {
 export interface PokemonTypes {
 	slot: string;
 	type: PokemonType;
-};
+}
 
 // pokemon type from types
 export interface PokemonType {
 	name: string;
 	url: string;
-};
+}
 
 // pokemon ability item
 export interface PokemonAbilityItem {
@@ -48,13 +49,13 @@ export interface PokemonStats {
 	base_stat: number;
 	effort: number;
 	stat: PokemonStat;
-};
+}
 
 // pokemon stat from stats
 export interface PokemonStat {
 	name: string;
 	url: string;
-};
+}
 
 // pokemon evolution chain
 export interface PokemonEvolutionChain {
@@ -69,19 +70,19 @@ export interface PokemonSpecies {
 	name: string;
 	url: string;
 	spriteUrl: string;
-};
+}
 
 // pokemon growth rate
 export interface PokemonGrowthRate {
 	name: string;
 	url: string;
-};
+}
 
 // pokemon habitat
 export interface PokemonHabitat {
 	name: string;
 	url: string;
-};
+}
 
 // COMPONENTS
 
@@ -94,6 +95,7 @@ export interface ChipProps {
 
 // header component
 export interface HeaderProps {
+	navigation: NavigationScreenProp;
 	title: string;
 	showBackButton?: boolean;
 	headerRight?: ReactNode;

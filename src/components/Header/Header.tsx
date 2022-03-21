@@ -7,7 +7,6 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
 // js
@@ -17,12 +16,11 @@ import colors from '../../utils/colors';
 import { HeaderProps } from '../../utils/interfaces';
 
 const Header: React.FC<HeaderProps> = ({
+	navigation,
 	title,
 	showBackButton,
 	textColor = colors.red,
 }) => {
-	const navigation = useNavigation();
-
 	const iconName = Platform.OS === 'ios' ? 'left' : 'arrowleft';
 
 	function handleGoBack() {

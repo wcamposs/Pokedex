@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EvolutionChain /> renders correctly with an empty evolution chain 1`] = `null`;
+
+exports[`<EvolutionChain /> renders correctly with an evolution chain 1`] = `null`;

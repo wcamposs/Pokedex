@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pokemon List /> renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "marginTop": 20,
+        "padding": 24,
+        "zIndex": 100,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <View />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#d40000",
+              "fontSize": 32,
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 32,
+              "paddingTop": 12,
+              "textAlign": "center",
+              "textTransform": "uppercase",
+            }
+          }
+        >
+          Pokedex
+        </Text>
+      </View>
+      <View />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "marginBottom": 12,
+        "marginTop": -16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFF",
+          "borderColor": "#e6e6f0",
+          "borderRadius": 12,
+          "borderWidth": 0.5,
+          "flexDirection": "row",
+          "height": 42,
+          "marginHorizontal": 12,
+          "marginTop": 12,
+          "paddingHorizontal": 12,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCapitalize="none"
+        autoCompleteType="off"
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        placeholder="Search a pokemon..."
+        rejectResponderTermination={true}
+        returnKeyType="search"
+        selectTextOnFocus={true}
+        style={
+          Object {
+            "flex": 1,
+            "paddingHorizontal": 12,
+            "paddingVertical": 12,
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    ListFooterComponent={[Function]}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={5}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.5}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    style={Object {}}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
