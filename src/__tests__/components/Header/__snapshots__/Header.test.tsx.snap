@@ -50,7 +50,7 @@ exports[`<Header /> renders header correctly with title 1`] = `
 </View>
 `;
 
-exports[`<Header /> renders header correctly without title 1`] = `
+exports[`<Header /> renders header correctly without a title 1`] = `
 <View
   style={
     Object {
