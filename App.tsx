@@ -1,37 +1,46 @@
 // libraries
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
 
 // component
 import AppStack from './src/routes/AppStack';
+import { Entypo } from '@expo/vector-icons';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-	const readyTimeout = useRef(0);
 	const [appReady, setAppReady] = useState(false);
 
-	// UNCOMMENT TO DISABLE WARNINGS
-	// console.disableYellowBox = true;
+    useEffect(() => {
+        async function prepare() {
+          try {
+            await Font.loadAsync(Entypo.font);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+          } catch (e) {
+            console.warn(e);
+          } finally {
+            setAppReady(true);
+          }
+        }
+    
+        prepare();
+      }, []);
 
-	useEffect(() => {
-		if (readyTimeout.current) {
-			clearTimeout(readyTimeout.current);
-		}
-
-		if (!appReady) {
-			readyTimeout.current = window.setTimeout(() => {
-				setAppReady(true);
-			}, 1000);
-		}
-	}, [appReady]);
-
-	if (!appReady) {
-		return <AppLoading />;
-	}
+      const onLayoutRootView = useCallback(async () => {
+        if (appReady) {
+          await SplashScreen.hideAsync();
+        }
+      }, [appReady]);
+    
+      if (!appReady) {
+        return null;
+      }
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.container} onLayout={onLayoutRootView}>
 			<StatusBar translucent backgroundColor="transparent" />
 			<AppStack />
 		</View>
