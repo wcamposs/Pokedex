@@ -2,7 +2,7 @@
 
 A simple pokemon search app!
 
-<!-- ![](https://imgur.com/mqlQYyF) -->
+![pokedex](https://github.com/wcamposs/Pokedex/assets/36939543/22dfe602-9bce-48d6-becb-8ef3b64ac7a7)
 
 ## Description:
 
